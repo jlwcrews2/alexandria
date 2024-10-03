@@ -1,4 +1,4 @@
-package no.jlwcrews.alexandria;
+package no.jlwcrews.alexandria.application;
 
 import no.jlwcrews.alexandria.models.Book;
 import org.springframework.beans.factory.annotation.Autowired;

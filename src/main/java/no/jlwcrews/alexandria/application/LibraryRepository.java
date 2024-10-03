@@ -1,4 +1,4 @@
-package no.jlwcrews.alexandria;
+package no.jlwcrews.alexandria.application;
 
 import com.github.javafaker.Faker;
 import no.jlwcrews.alexandria.models.Author;
