@@ -33,7 +33,7 @@ public class HtmlController {
     }
 
     @PostMapping("/addNewBook")
-    public String addNewBook(@ModelAttribute Book book, Model model){
+    public String addNewBook(@ModelAttribute Book book){
         libraryService.addNewBook(book);
         return "newBookResult";
     }
