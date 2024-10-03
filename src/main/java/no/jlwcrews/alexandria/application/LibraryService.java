@@ -1,5 +1,6 @@
 package no.jlwcrews.alexandria.application;
 
+import no.jlwcrews.alexandria.application.error.BookNotFoundException;
 import no.jlwcrews.alexandria.models.Book;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,7 +25,7 @@ public class LibraryService {
         return repo.getAvailableBooks();
     }
 
-    public Book getBookById(int id) {
+    public Book getBookById(int id) throws BookNotFoundException {
         return repo.getBookById(id);
     }
 

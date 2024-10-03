@@ -1,6 +1,7 @@
 package no.jlwcrews.alexandria.application;
 
 import com.github.javafaker.Faker;
+import no.jlwcrews.alexandria.application.error.BookNotFoundException;
 import no.jlwcrews.alexandria.models.Author;
 import no.jlwcrews.alexandria.models.Book;
 import no.jlwcrews.alexandria.models.Location;
@@ -23,7 +24,7 @@ public class LibraryRepository {
                    new Author(Faker.instance().name().firstName(), Faker.instance().name().lastName()),
                    Faker.instance().book().publisher(),
                    new Status(Faker.instance().bool().bool()),
-                   new Location("Main building")
+                   new Location(Faker.instance().numerify("Shelf ###"))
            ));
         }
     }
@@ -40,11 +41,13 @@ public class LibraryRepository {
     }
 
     public Book getBookById(int id) {
-        return library
+        Book book = library
                 .stream()
                 .filter(b -> b.getBookId() == id)
                 .findFirst()
                 .orElse(null);
+        if (book == null) throw new BookNotFoundException(id);
+        return book;
     }
 
     public Book addBook(Book newBook) {
