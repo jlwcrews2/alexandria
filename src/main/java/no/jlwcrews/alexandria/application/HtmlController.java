@@ -1,6 +1,8 @@
+/*
 package no.jlwcrews.alexandria.application;
 
-import no.jlwcrews.alexandria.models.Book;
+import no.jlwcrews.alexandria.book.BookService;
+import no.jlwcrews.alexandria.book.Book;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,16 +15,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/html")
 public class HtmlController {
 
-    private final LibraryService libraryService;
+    private final BookService bookService;
 
     @Autowired
-    public HtmlController(LibraryService libraryService) {
-        this.libraryService = libraryService;
+    public HtmlController(BookService bookService) {
+        this.bookService = bookService;
     }
 
     @GetMapping
     public String home(Model model) {
-        model.addAttribute("books", libraryService.getBooks());
+        model.addAttribute("books", bookService.getBooks());
         return "index";
     }
 
@@ -34,7 +36,8 @@ public class HtmlController {
 
     @PostMapping("/addNewBook")
     public String addNewBook(@ModelAttribute Book book){
-        libraryService.addNewBook(book);
+        bookService.addNewBook(book);
         return "newBookResult";
     }
 }
+*/
