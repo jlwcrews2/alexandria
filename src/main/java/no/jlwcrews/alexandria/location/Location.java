@@ -1,5 +1,7 @@
 package no.jlwcrews.alexandria.location;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 import no.jlwcrews.alexandria.book.Book;
@@ -18,6 +20,7 @@ public class Location {
     private String shelf;
 
     @OneToMany(mappedBy = "location")
+    @JsonIgnoreProperties("location")
     private List<Book> books;
 
     public Location(String shelf) {
