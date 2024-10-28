@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import no.jlwcrews.alexandria.author.Author;
+import no.jlwcrews.alexandria.bookevent.BookEvent;
 import no.jlwcrews.alexandria.location.Location;
 import no.jlwcrews.alexandria.models.Status;
 
@@ -37,6 +38,10 @@ public class Book {
     @JoinColumn(name = "location_id")
     @JsonIgnoreProperties("books")
     private Location location;
+
+    @OneToMany(mappedBy = "book")
+    @JsonIgnoreProperties("book")
+    private List<BookEvent> events;
 
     public Book(String title, String publisher, Status status, List<Author> authors, Location location) {
         this.title = title;
