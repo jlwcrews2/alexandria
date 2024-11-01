@@ -20,4 +20,14 @@ public class RestExceptionHandler {
                 .build();
         return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
     }
+
+    @ExceptionHandler(value = LocationNotFoundException.class)
+    public ResponseEntity<ExceptionResponse> handleLocationNotFound() {
+        ExceptionResponse response = ExceptionResponse.builder()
+                .status(HttpStatus.NOT_FOUND.value())
+                .reason("Location not found")
+                .timestamp(ZonedDateTime.now(ZoneId.of("Europe/Oslo")))
+                .build();
+        return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
+    }
 }

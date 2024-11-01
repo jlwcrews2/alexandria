@@ -1,6 +1,7 @@
+/*
 package no.jlwcrews.alexandria.application;
 
-import no.jlwcrews.alexandria.models.Book;
+import no.jlwcrews.alexandria.book.Book;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -38,3 +39,4 @@ public class HtmlController {
         return "newBookResult";
     }
 }
+*/
