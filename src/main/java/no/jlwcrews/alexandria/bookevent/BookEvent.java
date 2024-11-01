@@ -1,5 +1,6 @@
 package no.jlwcrews.alexandria.bookevent;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,6 +28,7 @@ public class BookEvent {
 
     @ManyToOne
     @JoinColumn(name = "patron_id")
+    @JsonIgnoreProperties("events")
     private Patron patron;
 
     public BookEvent(LocalDateTime date, BookEventType type, Book book, Patron patron) {

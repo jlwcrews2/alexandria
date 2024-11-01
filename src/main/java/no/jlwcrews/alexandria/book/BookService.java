@@ -44,19 +44,19 @@ public class BookService {
     }
 
     public Book saveBook(BookDto bookDto) {
-        Location location = locationService.getLocationById(bookDto.locationId());
+        Location location = locationService.getLocationById(bookDto.getLocationId());
         List<Author> authors = new ArrayList<>();
-        for (Long authorId: bookDto.authors()) {
+        for (Long authorId: bookDto.getAuthorIds()) {
             authors.add(authorService.getAuthorById(authorId));
         }
 
-        Book book = new Book(
-                bookDto.title(),
-                bookDto.publisher(),
+        Book book = bookRepo.save(new Book(
+                bookDto.getTitle(),
+                bookDto.getPublisher(),
                 Status.AVAILABLE,
                 location,
                 authors
-        );
+        ));
 
         bookEventService.saveBookEvent(
                 new BookEvent(
@@ -67,10 +67,16 @@ public class BookService {
                 )
         );
 
-        return bookRepo.save(book);
+        return bookRepo.findById(book.getBookId()).orElse(null);
     }
 
     public void deleteBookById(long id) {
         bookRepo.deleteById(id);
+    }
+
+    public Book changeBookTitle(BookTitleChangeDto dto) {
+        Book book = bookRepo.findById(dto.getBookId()).orElse(null);
+        book.setTitle(dto.getNewTitle());
+        return bookRepo.save(book);
     }
 }

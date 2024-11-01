@@ -14,16 +14,15 @@ import no.jlwcrews.alexandria.models.Status;
 import no.jlwcrews.alexandria.patron.Patron;
 import no.jlwcrews.alexandria.patron.PatronService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-@Component
-public class InitiData implements CommandLineRunner {
+@Service
+public class InitiData {
 
     private final LocationService locationService;
     private final AuthorService authorService;
@@ -42,8 +41,8 @@ public class InitiData implements CommandLineRunner {
         this.bookEventService = bookEventService;
     }
 
-    @Override
-    public void run(String... args) throws Exception {
+
+    public void createTestData() {
 
         //create locations
         List<Location> locations = new ArrayList<>();

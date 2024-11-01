@@ -39,4 +39,9 @@ public class BookController {
         bookService.deleteBookById(id);
         return ResponseEntity.ok("Book deleted");
     }
+
+    @PutMapping("/change/title")
+    public ResponseEntity<Book> changeBookTitle(BookTitleChangeDto dto) {
+        return ResponseEntity.ok(bookService.changeBookTitle(dto));
+    }
 }

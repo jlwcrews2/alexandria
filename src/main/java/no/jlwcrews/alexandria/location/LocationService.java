@@ -31,8 +31,8 @@ public class LocationService {
         return location;
     }
 
-    public Location saveLocation(Location author) {
-        return locationRepo.save(author);
+    public Location saveLocation(Location location) {
+        return locationRepo.save(location);
     }
 
     public void deleteLocationById(long id) {
