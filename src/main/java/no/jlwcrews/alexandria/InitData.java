@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.Random;
 
 @Service
-public class InitiData {
+public class InitData {
 
     private final LocationService locationService;
     private final AuthorService authorService;
@@ -33,7 +33,7 @@ public class InitiData {
     private final Random rng = new Random();
 
     @Autowired
-    public InitiData(LocationService locationService, AuthorService authorService, BookService bookService, PatronService patronService, BookEventService bookEventService) {
+    public InitData(LocationService locationService, AuthorService authorService, BookService bookService, PatronService patronService, BookEventService bookEventService) {
         this.locationService = locationService;
         this.authorService = authorService;
         this.bookService = bookService;
