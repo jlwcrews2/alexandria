@@ -30,4 +30,8 @@ public class PatronService {
     public void deletePatronById(long id) {
         patronRepo.deleteById(id);
     }
+
+    public void deleteAllPatrons() {
+        patronRepo.deleteAll();
+    }
 }

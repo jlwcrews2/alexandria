@@ -119,4 +119,12 @@ public class InitData {
     private Location getRandomLocation(List<Location> locations) {
         return locations.get(rng.nextInt(locations.size()));
     }
+
+    public void deleteTestData(){
+        bookEventService.deleteAllBookEvents();
+        locationService.deleteAllLocations();
+        authorService.deleteAllAuthors();
+        bookService.deleteAllBooks();
+        patronService.deleteAllPatrons();
+    }
 }

@@ -30,4 +30,8 @@ public class BookEventService {
     public void deleteBookEventById(long id) {
         bookeventRepo.deleteById(id);
     }
+
+    public void deleteAllBookEvents() {
+        bookeventRepo.deleteAll();
+    }
 }

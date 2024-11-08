@@ -30,4 +30,8 @@ public class AuthorService {
     public void deleteAuthorById(long id) {
         authorRepo.deleteById(id);
     }
+
+    public void deleteAllAuthors() {
+        authorRepo.deleteAll();
+    }
 }
