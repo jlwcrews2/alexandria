@@ -38,4 +38,8 @@ public class LocationService {
     public void deleteLocationById(long id) {
         locationRepo.deleteById(id);
     }
+
+    public void deleteAllLocations() {
+        locationRepo.deleteAll();
+    }
 }

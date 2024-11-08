@@ -79,4 +79,8 @@ public class BookService {
         book.setTitle(dto.getNewTitle());
         return bookRepo.save(book);
     }
+
+    public void deleteAllBooks(){
+        bookRepo.deleteAll();
+    }
 }
